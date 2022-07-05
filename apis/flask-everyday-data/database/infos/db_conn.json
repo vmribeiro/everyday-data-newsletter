@@ -1,0 +1,8 @@
+{
+      "host":     "localhost"
+    , "port":     "5432"
+    , "username": "everyday_data_admin"
+    , "password": "everyday#data#2022"
+    , "database": "portfolio"
+    , "ssl_mode": "require"
+}
