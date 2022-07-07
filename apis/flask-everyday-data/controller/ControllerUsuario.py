@@ -6,6 +6,7 @@ class ControllerUsuario():
     def __init__(self):
         self.status = 1
 
+
     def insertUser(self, email, name, password, profile_name, birthday, job):
         try:
             
@@ -170,15 +171,19 @@ class ControllerUsuario():
             cursor.execute(sql_select_query, fields_to_select)
             record = cursor.fetchone()
 
+            if record is None:
+                print("User {} not found!".format(user_id))
+                return False
+
             user = {
-                    'id': record[0]
-                , 'email': record[1]
-                , 'name': record[2]
-                , 'password': record[3]
-                , 'profile_name': record[4]
-                , 'birthday': record[5]
-                , 'job': record[6]
-                , 'subscription': record[7]
+                      'id': record[0]
+                    , 'email': record[1]
+                    , 'name': record[2]
+                    , 'password': record[3]
+                    , 'profile_name': record[4]
+                    , 'birthday': record[5]
+                    , 'job': record[6]
+                    , 'subscription': record[7]
             }
             
             count = cursor.rowcount
@@ -194,5 +199,41 @@ class ControllerUsuario():
             return False
             
 
-    def findAllUsers(self, user_id):
-        return False
+    def findAllUsers(self):
+        try:
+            import json
+            
+            connection = Connection()
+            conn_obj = connection.conn
+            cursor = conn_obj.cursor()
+
+            sql_select_query = """SELECT * FROM EVERYDAY_DATA.USERS"""
+            cursor.execute(sql_select_query)
+            rows = cursor.fetchall()
+
+            list_users = []
+            for row in rows:
+                list_users.append({
+                          'id':                 row[0]
+                        , 'email':              row[1]
+                        , 'name':               row[2]
+                        , 'password':           row[3]
+                        , 'profile_name':       row[4]
+                        , 'birthday':           row[5]
+                        , 'job':                row[6]
+                        , 'subscription':       row[7]
+                })
+            
+            count = cursor.rowcount
+            print(count, "Record selected successfully from user table.")
+
+            connection.close_connection(cursor = cursor, connection = conn_obj)
+
+            return list_users
+
+        except Exception as ex:
+
+            print("Error during user select. Error: {}".format(str(ex)))
+            return False
+
+

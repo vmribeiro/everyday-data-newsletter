@@ -2,21 +2,27 @@
 <template>
 
     <NavbarComponent></NavbarComponent>
-    <br/>
 
-    <h2> Newsletters </h2>
+    <div class="web-body">
 
-    <div class="list-group">
-        <div class="list-group-item" v-for="(news) in newsletters" :key="news.id">
+        <br/>
 
-            <span class="comment__author" id="{{news.id}}"> Autor: <strong> {{news.name}} </strong> </span><br/><br>
-            <b> {{news.title}} </b><br>
-            <p> {{news.description}} </p>
-        
+        <h2> Newsletters </h2>
+
+        <div class="list-group">
+            <div class="list-group-item" v-for="(news) in newsletters" :key="news.id">
+
+                <span class="comment__author" id="{{news.id}}"> Autor: <strong> {{news.name}} </strong> </span><br/><br>
+                <b> {{news.title}} </b><br>
+                <p> {{news.description}} </p>
+            
+            </div>
         </div>
-    </div>
 
-    <br/><br/>
+        <br/><br/>
+
+    </div>
+    
     <FooterComponent></FooterComponent>
 
 </template>

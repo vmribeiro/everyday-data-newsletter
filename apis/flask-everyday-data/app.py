@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from controller.ControllerUsuario import ControllerUsuario
+from controller.ControllerNewsletters import ControllerNewsletters
  
 
 
@@ -30,6 +31,13 @@ def ping():
     })
 
 
+
+'''
+*******************
+USERS
+*******************
+'''
+
 @app.route('/insert_user', methods=['POST'])
 def insert_user():
 
@@ -48,7 +56,7 @@ def insert_user():
         return jsonify({'status': 'false'})
 
 
-@app.route('/find_user_by_id/<string:user_id>', methods=['POST'])
+@app.route('/find_user_by_id/<string:user_id>', methods=['GET'])
 def find_user_by_id(user_id):
     
     result = ControllerUsuario().findUserById( user_id )
@@ -58,7 +66,6 @@ def find_user_by_id(user_id):
     else:
         return jsonify({'status': 'false'})
 
-    return jsonify({'DB_DATA': 'deleted_user_{}'.format(user_id)})
 
 
 @app.route('/update_user', methods=['POST'])
@@ -80,7 +87,7 @@ def update_user():
         return jsonify({'status': 'false'})
 
  
-@app.route('/delete/<string:user_id>', methods=['GET'])
+@app.route('/delete_user/<string:user_id>', methods=['GET'])
 def delete_user(user_id):
     
     result = ControllerUsuario().deleteUser( user_id )
@@ -90,8 +97,95 @@ def delete_user(user_id):
     else:
         return jsonify({'status': 'false'})
 
-    return jsonify({'DB_DATA': 'deleted_user_{}'.format(user_id)})
  
+
+@app.route('/find_all_users', methods=['GET'])
+def find_all_users():
+    
+    result = ControllerUsuario().findAllUsers()
+
+    if result:
+        return jsonify({'status': 'true', 'result': result})
+    else:
+        return jsonify({'status': 'false'})
+
+
+
+'''
+*******************
+NEWSLETTERS
+*******************
+'''
+
+@app.route('/insert_newsletter', methods=['POST'])
+def insert_newsletter():
+
+    post_data = request.get_json(silent=True)
+    
+    result = ControllerNewsletters().insertNewsletter(  post_data.get('user_id')
+                                                      , post_data.get('title')
+                                                      , post_data.get('text')
+                                                      , post_data.get('banner_url')
+                                                      , post_data.get('category')          )
+
+    if result:
+        return jsonify({'status': 'true'})
+    else:
+        return jsonify({'status': 'false'})
+
+
+@app.route('/find_newsletter_by_id/<string:newsletter_id>', methods=['GET'])
+def find_newsletter_by_id(newsletter_id):
+    
+    result = ControllerNewsletters().findNewsletterById( newsletter_id )
+
+    if result:
+        return jsonify({'status': 'true', 'result': result})
+    else:
+        return jsonify({'status': 'false'})
+
+
+
+@app.route('/update_newsletter', methods=['POST'])
+def update_newsletter():
+
+    post_data = request.get_json(silent=True)
+    
+    result = ControllerNewsletters().updateNewsletter(    post_data.get('newsletter_id')
+                                                        , post_data.get('title')
+                                                        , post_data.get('text')
+                                                        , post_data.get('banner_url')
+                                                        , post_data.get('category')    )
+
+    if result:
+        return jsonify({'status': 'true'})
+    else:
+        return jsonify({'status': 'false'})
+
+
+@app.route('/delete_newsletter/<string:newsletter_id>', methods=['GET'])
+def delete_newsletter(newsletter_id):
+    
+    result = ControllerNewsletters().deleteNewsletter( newsletter_id )
+
+    if result:
+        return jsonify({'status': 'true'})
+    else:
+        return jsonify({'status': 'false'})
+
+ 
+
+@app.route('/find_all_newsletters', methods=['GET'])
+def find_all_newsletters():
+    
+    result = ControllerNewsletters().findAllNewsletters()
+
+    if result:
+        return jsonify({'status': 'true', 'result': result})
+    else:
+        return jsonify({'status': 'false'})
+
+
 
 
 

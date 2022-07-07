@@ -1,0 +1,298 @@
+
+/*
+####################################################
+M E D I A  Q U E R I E S
+####################################################
+*/
+
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Bootstrap 4 breakpoints
+*/
+
+/* 
+Extra small devices (portrait phones, less than 544px) 
+No media query since this is the default in Bootstrap because it is "mobile first"
+*/
+
+
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {  
+
+}
+
+/* Medium devices (tablets, 768px and up) 
+The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+    
+}
+
+
+
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Custom media queries
+*/
+
+@media (max-width: 950px) { 
+
+}
+
+
+/* NAVBAR */
+
+.top-banner-background {
+    height: 550px;
+    width: 100%;
+    /* The image used */
+    background-image: url("assets/logo-wallpaper12.jpg");
+
+    /* Set a specific height */
+    min-height: 280px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow:inset 0 0 0 400px rgba(0, 0, 0, 0.5)
+}
+
+.navbar-brand {
+    color: white !important;
+    font-family: 'HARMONY', sans-serif;
+    font-size: 35px;
+    font-weight: 400;
+}
+
+.navbar {
+    padding: 0.5rem 3rem;
+    margin: 0px 4%;
+    border-bottom: 1px solid white;
+}
+
+nav .navbar-nav li a{
+    color: white !important;
+    text-decoration: none;
+    font-family: 'DM Serif Text', sans-serif;
+    font-size: 20px;
+}  
+
+nav .navbar-nav li a:hover, .nav-link:hover{
+    color: rgb(242, 242, 242) !important;
+    text-decoration: none;
+}   
+
+
+
+/* BODY */
+.web-body {
+    margin:3rem;
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+.main-banner {
+    font-family: 'HARMONY', sans-serif;
+    font-size: 55px;
+    color: rgb(255, 255, 255);
+    word-wrap: break-word;
+}
+
+.banner-container {
+    height: 60%;
+    width: 70%;
+    margin: 20px 5%;
+    margin-top: 70px !important;
+    padding: 30px;
+}
+
+
+.banner-link {
+    font-family: 'HARMONY', sans-serif;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    word-wrap: break-word;
+}
+
+.banner-link:hover {
+    color: rgb(192, 192, 192);
+}
+
+
+.main-banner-nothome {
+    font-family: 'HARMONY', sans-serif;
+    color: rgb(255, 255, 255);
+    word-wrap: break-word;
+}
+
+.banner-title {
+    font-size: 40px;
+}
+
+.banner-description {
+    font-size: 20px;
+}
+
+.banner-container-nothome {
+    height: 60%;
+    width: 90%;
+    margin: 20px 5%;
+    margin-top: 50px !important;
+    padding: 30px;
+}
+
+.top-banner-background-nothome {
+    height: 350px;
+    width: 100%;
+    /* The image used */
+    background-image: url("assets/logo-wallpaper12.jpg");
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow:inset 0 0 0 400px rgba(0, 0, 0, 0.5)
+}
+
+.footer-section {
+    color: white;
+    background-color: rgb(26, 26, 32);
+    height: 350px;
+    width: 100%;
+    
+}
+
+.footer-section .container {
+    font-family: 'DM Serif Text', sans-serif;
+    padding: 20px;
+    width: 100%;
+}
+
+
+.footer-text {
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 16px;
+    color: white;
+}
+
+.footer-text a {
+    color: rgb(255, 255, 255);
+}
+
+.footer-text a:hover {
+    color: rgb(112, 112, 112);
+}
+
+.button-form-footer button {
+    background-color: rgb(34, 53, 103);
+    border: none;
+}
+
+.button-form-footer button:hover {
+    background-color: rgb(60, 69, 92);
+}
+
+.btn:focus{
+    outline: none !important;
+}
+
+.button-form-footer button:focus, .button-form-footer button:active {
+    background-color: rgb(74, 79, 91) !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+
+.news-category-title {
+    font-family: 'HARMONY', sans-serif;
+    font-size: 45px;
+}
+
+.vert-dash-category-title {
+    background:rgb(0, 0, 0); 
+    padding-right:20px; 
+    margin-right: 10px;
+}
+
+.horiz-dash-category-title {
+    background:rgb(0, 0, 0); 
+    height: 3px;
+    margin-top: 25px;
+}
+
+.newsletter-img-big {
+    width: 200px;
+    height: 200px;
+}
+
+.newsletter-category-big{
+    margin-top: 20px;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(255, 68, 0);
+}
+
+.newsletter-title-big{
+    margin-top: -13px;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.newsletter-author-big {
+    margin-top: -13px;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(205, 204, 204);
+}
+
+
+
+
+
+.card-news-inside {
+    background-size: cover;
+    height: 250px;
+    padding: 40px;
+    box-shadow:inset 0 0 0 400px rgba(0, 0, 0, 0.7)
+}
+
+.card-newsletter {
+    height: 280px;
+    margin-bottom: 30px;
+    padding: 0px 30px;
+}
+
+.card-newsletter-divisor {
+    padding-top: 30px;
+}
+
+.card-newsletter-divisor-int {
+    width: 70%;
+    border-bottom: 2px solid black;
+}
+
+.newsletter-link {
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    word-wrap: break-word;
+}
+
+.newsletter-link:hover {
+    color: rgb(192, 192, 192);
+}

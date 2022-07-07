@@ -8,7 +8,7 @@ function lazyLoad(view){
 
 const routes = [
     {path: '/newsletters', name: "newsletters", component: lazyLoad('NewsletterView')},
-    {path: '/', name: "home", component: lazyLoad('HomeView')},
+    {path: '/',     name: "home", component: lazyLoad('HomeView')},
     {path: '/:pathMatch(.*)*', component: lazyLoad('NotFoundView')} // In case the link doesnt exist. 404 page =)
 ];
 
