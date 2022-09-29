@@ -184,7 +184,7 @@ class ControllerUsuario():
                     , 'birthday': record[5]
                     , 'job': record[6]
                     , 'subscription': record[7]
-            }
+            }   
             
             count = cursor.rowcount
             print(count, "Record selected successfully from user table.")
